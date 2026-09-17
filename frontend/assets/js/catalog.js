@@ -12,7 +12,7 @@ function renderCatalogGrid(products, mountEl) {
     .map(
       (p) => `
     <div class="card">
-      <div class="card-thumb">${p.title}</div>
+      <div class="card-thumb">${productIcon(p.id)}</div>
       <div class="card-body">
         <div class="card-title">${p.title}</div>
         <div class="card-price">${p.price} ₽</div>

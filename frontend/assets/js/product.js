@@ -23,8 +23,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   mount.innerHTML = `
     <div class="hero" style="align-items:start;">
-      <div class="hero-art">${product.title}</div>
+      <div class="hero-art">${productIcon(product.id, "lg")}</div>
       <div>
+        <p class="eyebrow">Персонализация</p>
         <h1>${product.title}</h1>
         <p class="lead">${product.description}</p>
         <p class="card-price" style="font-size:22px;">${product.price} ₽</p>

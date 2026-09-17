@@ -9,6 +9,7 @@
   --danger: #ff6b6b;
   --radius: 10px;
   --maxw: 1040px;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   font-size: 16px;
 }
 
@@ -49,12 +50,17 @@ header.site .wrap {
 }
 
 .logo {
-  font-weight: 700;
-  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 19px;
   letter-spacing: -0.02em;
   color: var(--fg);
 }
 .logo span { color: var(--accent); }
+.logo-mark { width: 24px; height: 24px; flex: none; }
 
 nav.main a {
   color: var(--fg-muted);
@@ -103,8 +109,18 @@ p.lead { color: var(--fg-muted); font-size: 17px; max-width: 620px; }
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px;
   font-size: 13px;
   color: var(--fg-muted);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin: 0 0 10px;
 }
 
 .btn {
@@ -145,12 +161,13 @@ p.lead { color: var(--fg-muted); font-size: 17px; max-width: 620px; }
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
   color: var(--fg-muted);
   font-size: 13px;
 }
 .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
 .card-title { font-weight: 600; font-size: 16px; }
-.card-price { color: var(--accent); font-weight: 700; }
+.card-price { color: var(--accent); font-weight: 700; font-family: var(--font-mono); }
 .card-body .btn { margin-top: auto; }
 
 .panel {
@@ -203,7 +220,7 @@ table.cart-table th { color: var(--fg-muted); font-weight: 500; }
 
 .badge {
   display: inline-block; padding: 2px 8px; border-radius: 999px;
-  font-size: 12px; border: 1px solid var(--border); color: var(--fg-muted);
+  font-size: 12px; font-family: var(--font-mono); border: 1px solid var(--border); color: var(--fg-muted);
 }
 .badge.paid { color: var(--accent); border-color: var(--accent-dim); }
 .badge.new { color: #ffd166; border-color: #5a4a1f; }

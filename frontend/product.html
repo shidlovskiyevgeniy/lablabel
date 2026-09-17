@@ -4,12 +4,23 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Товар — lablabel</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="index.html">lab<span>label</span></a>
+    <a class="logo" href="index.html">
+      <svg class="logo-mark" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="14" cy="14" r="10" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="14" cy="14" r="2.5" fill="var(--accent)"/>
+        <path d="M14 0v3M14 25v3M0 14h3M25 14h3" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      lab<span>label</span>
+    </a>
     <nav class="main">
       <a href="index.html">Главная</a>
       <a href="catalog.html" class="active">Каталог</a>
@@ -40,6 +51,7 @@
 </footer>
 
 <script src="assets/js/cart.js"></script>
+<script src="assets/js/icons.js"></script>
 <script src="assets/js/catalog.js"></script>
 <script src="assets/js/product.js"></script>
 </body>

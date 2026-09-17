@@ -5,12 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>lablabel — фишка-спиннер с NFC и QR на ваши соцсети</title>
 <meta name="description" content="Персонализированная 3D-печатная фишка-спиннер с NFC-меткой и QR-кодом на ваш VK или Telegram. Печатается на заказ." />
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="index.html">lab<span>label</span></a>
+    <a class="logo" href="index.html">
+      <svg class="logo-mark" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="14" cy="14" r="10" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="14" cy="14" r="2.5" fill="var(--accent)"/>
+        <path d="M14 0v3M14 25v3M0 14h3M25 14h3" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      lab<span>label</span>
+    </a>
     <nav class="main">
       <a href="index.html" class="active">Главная</a>
       <a href="catalog.html">Каталог</a>
@@ -27,6 +38,7 @@
   <div class="wrap">
     <div class="hero">
       <div>
+        <p class="eyebrow">3D-печать · NFC · QR</p>
         <h1>Вещь, которая физически хранит ссылку на вас</h1>
         <p class="lead">
           lablabel — это персонализированная 3D-печатная фишка-спиннер с NFC-меткой и
@@ -35,7 +47,7 @@
         </p>
         <a class="btn" href="catalog.html">Смотреть каталог</a>
       </div>
-      <div class="hero-art">рендер / фото фишки</div>
+      <div class="hero-art" id="hero-art"></div>
     </div>
 
     <section style="margin-top:64px;">
@@ -70,5 +82,7 @@
 </footer>
 
 <script src="assets/js/cart.js"></script>
+<script src="assets/js/icons.js"></script>
+<script>document.getElementById("hero-art").innerHTML = HERO_ILLUSTRATION;</script>
 </body>
 </html>
