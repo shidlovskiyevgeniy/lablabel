@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Вход — lablabel</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">lab<span>label</span></a>
+    <nav class="main">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="legal/contacts.html">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <a href="cabinet.html">Кабинет</a>
+      <a href="cart.html">Корзина<span class="cart-badge" data-cart-count style="display:none;"></span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap center-narrow">
+    <h1>Вход в кабинет</h1>
+    <p class="lead" style="font-size:14px;">Без пароля — вход по коду из письма на почту.</p>
+
+    <div class="notice err" id="auth-error" style="display:none;"></div>
+
+    <form id="auth-request-form" class="panel">
+      <div class="field">
+        <label for="req-email">E-mail</label>
+        <input type="email" id="req-email" name="email" required />
+      </div>
+      <button type="submit" class="btn full">Получить код</button>
+    </form>
+
+    <form id="auth-verify-form" class="panel" style="display:none;">
+      <p class="hint">Код отправлен на <strong id="verify-email-label"></strong>. Проверьте почту.</p>
+      <div class="field">
+        <label for="code">Код из письма</label>
+        <input type="text" id="code" name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required />
+      </div>
+      <button type="submit" class="btn full">Войти</button>
+    </form>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a href="legal/oferta.html">Публичная оферта</a>
+      <a href="legal/vozvrat.html">Оплата и возврат</a>
+      <a href="legal/contacts.html">Реквизиты и контакты</a>
+    </div>
+    <div>© lablabel, самозанятый (НПД)</div>
+  </div>
+</footer>
+
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

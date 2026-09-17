@@ -1,0 +1,12 @@
+{
+  "name": "lablabel-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Yandex Cloud Functions backing lablabel.ru — auth, orders, payments.",
+  "dependencies": {
+    "ydb-sdk": "^5.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.14",
+    "node-fetch": "^2.7.0"
+  }
+}

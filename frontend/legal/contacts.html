@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Реквизиты и контакты — lablabel</title>
+<link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="../index.html">lab<span>label</span></a>
+    <nav class="main">
+      <a href="../index.html">Главная</a>
+      <a href="../catalog.html">Каталог</a>
+      <a href="contacts.html" class="active">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <a href="../cabinet.html">Кабинет</a>
+      <a href="../cart.html">Корзина<span class="cart-badge" data-cart-count style="display:none;"></span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap legal">
+    <h1>Реквизиты и контакты</h1>
+
+    <!-- TODO: заменить плейсхолдеры реальными данными перед публикацией сайта -->
+    <p><strong>Продавец:</strong> {{ФИО самозанятого полностью}}</p>
+    <p><strong>Статус:</strong> плательщик налога на профессиональный доход (НПД, самозанятый)</p>
+    <p><strong>ИНН:</strong> {{ИНН}}</p>
+    <p><strong>Адрес регистрации:</strong> {{адрес}}</p>
+    <p><strong>E-mail:</strong> <a href="mailto:{{email}}">{{email}}</a></p>
+    <p><strong>Телефон:</strong> {{телефон}}</p>
+
+    <h2>Чек об оплате</h2>
+    <p>На каждую продажу формируется чек через приложение «Мой налог» и отправляется покупателю на указанный e-mail не позднее 9-го числа месяца, следующего за месяцем оплаты.</p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a href="oferta.html">Публичная оферта</a>
+      <a href="vozvrat.html">Оплата и возврат</a>
+      <a href="contacts.html">Реквизиты и контакты</a>
+    </div>
+    <div>© lablabel, самозанятый (НПД)</div>
+  </div>
+</footer>
+<script src="../assets/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Корзина — lablabel</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">lab<span>label</span></a>
+    <nav class="main">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="legal/contacts.html">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <a href="cabinet.html">Кабинет</a>
+      <a href="cart.html" class="active">Корзина<span class="cart-badge" data-cart-count style="display:none;"></span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Корзина</h1>
+    <div id="cart-table-mount"></div>
+
+    <div id="checkout-section" class="panel" style="max-width:520px;">
+      <h2>Оформление заказа</h2>
+      <div class="notice err" id="checkout-error" style="display:none;"></div>
+      <form id="checkout-form">
+        <div class="field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7..." required />
+        </div>
+        <div class="field">
+          <label for="email">E-mail (для чека и статуса заказа)</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <fieldset>
+          <legend>Способ доставки</legend>
+          <div id="delivery-methods"></div>
+        </fieldset>
+
+        <div class="field" id="address-field">
+          <label for="address">Адрес доставки</label>
+          <textarea id="address" name="address" placeholder="Индекс, город, улица, дом, квартира"></textarea>
+        </div>
+
+        <p class="hint" style="margin-bottom:16px;">
+          Оплачивая заказ, вы соглашаетесь с <a href="legal/oferta.html" target="_blank">публичной офертой</a>
+          и <a href="legal/vozvrat.html" target="_blank">условиями возврата персонализированного товара</a>.
+        </p>
+
+        <button type="submit" class="btn full">Оплатить</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a href="legal/oferta.html">Публичная оферта</a>
+      <a href="legal/vozvrat.html">Оплата и возврат</a>
+      <a href="legal/contacts.html">Реквизиты и контакты</a>
+    </div>
+    <div>© lablabel, самозанятый (НПД)</div>
+  </div>
+</footer>
+
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/checkout.js"></script>
+</body>
+</html>

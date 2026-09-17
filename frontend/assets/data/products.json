@@ -1,0 +1,43 @@
+[
+  {
+    "id": "spinner-chip",
+    "title": "Фишка-спиннер lablabel",
+    "shortDescription": "3D-печатная фишка со встроенной NFC-меткой и двумя QR-кодами на ваши соцсети.",
+    "description": "Персонализированная вещь: одно прикосновение телефоном (NFC) или сканирование QR открывает ваш VK или Telegram. Печатается на заказ под конкретную ссылку — корпус и QR-плашки склеиваются в один корпус-спиннер.",
+    "price": 1200,
+    "personalizable": true,
+    "colors": [
+      { "id": "white", "label": "Белый", "hex": "#f2f2f0" },
+      { "id": "black", "label": "Чёрный", "hex": "#1b1b1b" },
+      { "id": "green", "label": "Зелёный", "hex": "#3c5a2d" }
+    ],
+    "leadTimeDays": 3
+  },
+  {
+    "id": "spinner-chip-duo",
+    "title": "Фишка-спиннер lablabel — Duo (VK + Telegram)",
+    "shortDescription": "Та же фишка, но с двумя раздельными QR-плашками — отдельно VK и отдельно Telegram.",
+    "description": "Вариант для тех, кому нужны обе ссылки видимыми на поверхности одновременно, без переключения. NFC-метка ведёт на основную ссылку по вашему выбору.",
+    "price": 1500,
+    "personalizable": true,
+    "colors": [
+      { "id": "white", "label": "Белый", "hex": "#f2f2f0" },
+      { "id": "black", "label": "Чёрный", "hex": "#1b1b1b" }
+    ],
+    "leadTimeDays": 4
+  },
+  {
+    "id": "keychain-tag",
+    "title": "Брелок-бирка lablabel",
+    "shortDescription": "Компактная NFC-бирка на связку ключей или рюкзак — одна ссылка, один QR.",
+    "description": "Уменьшенная версия фишки без функции спиннера — просто бирка с NFC и QR-кодом на выбранную ссылку.",
+    "price": 800,
+    "personalizable": true,
+    "colors": [
+      { "id": "white", "label": "Белый", "hex": "#f2f2f0" },
+      { "id": "black", "label": "Чёрный", "hex": "#1b1b1b" },
+      { "id": "orange", "label": "Оранжевый", "hex": "#c9611b" }
+    ],
+    "leadTimeDays": 2
+  }
+]

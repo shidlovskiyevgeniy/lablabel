@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: lablabel API
+  version: "1.0"
+paths:
+  /catalog:
+    get:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_catalog}
+        service_account_id: ${service_account_id}
+    options:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_catalog}
+        service_account_id: ${service_account_id}
+
+  /auth/request-code:
+    post:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_auth_request}
+        service_account_id: ${service_account_id}
+    options:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_auth_request}
+        service_account_id: ${service_account_id}
+
+  /auth/verify-code:
+    post:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_auth_verify}
+        service_account_id: ${service_account_id}
+    options:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_auth_verify}
+        service_account_id: ${service_account_id}
+
+  /orders:
+    post:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_orders_create}
+        service_account_id: ${service_account_id}
+    options:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_orders_create}
+        service_account_id: ${service_account_id}
+
+  /orders/me:
+    get:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_orders_list}
+        service_account_id: ${service_account_id}
+    options:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_orders_list}
+        service_account_id: ${service_account_id}
+
+  /orders/{orderId}/pay:
+    post:
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_payment_create}
+        service_account_id: ${service_account_id}
+    options:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_payment_create}
+        service_account_id: ${service_account_id}
+
+  /payments/webhook:
+    post:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: ${fn_payment_webhook}
+        service_account_id: ${service_account_id}
