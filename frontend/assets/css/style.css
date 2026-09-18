@@ -71,6 +71,40 @@ nav.main a:hover, nav.main a.active { color: var(--fg); text-decoration: none; }
 
 .nav-right { display: flex; align-items: center; gap: 18px; }
 
+@media (max-width: 720px) {
+  header.site .wrap {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    row-gap: 6px;
+  }
+  .logo { order: 1; }
+  .nav-right { order: 2; gap: 14px; font-size: 14px; }
+  nav.main {
+    order: 3;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav.main a { margin-left: 0; }
+  main { padding: 28px 0 64px; }
+  h1 { font-size: 27px; }
+  .hero { gap: 24px; padding-top: 16px; }
+  table.cart-table, table.cart-table tbody, table.cart-table tfoot,
+  table.cart-table tr, table.cart-table td { display: block; }
+  table.cart-table thead { display: none; }
+  table.cart-table tbody tr { border-bottom: 1px solid var(--border); padding: 10px 0; }
+  table.cart-table td { border: 0; padding: 3px 0; overflow-wrap: anywhere; }
+  table.cart-table tbody td:nth-child(2)::before { content: "Кол-во: "; color: var(--fg-muted); }
+  table.cart-table tbody td:nth-child(3)::before { content: "Цена: "; color: var(--fg-muted); }
+  table.cart-table tbody td:nth-child(4)::before { content: "Сумма: "; color: var(--fg-muted); }
+  table.cart-table tbody td:nth-child(5) { padding-top: 8px; }
+  .cart-total-row td { display: block; }
+}
+
 .cart-badge {
   display: inline-flex;
   align-items: center;
