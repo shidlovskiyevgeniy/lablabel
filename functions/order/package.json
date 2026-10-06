@@ -1,0 +1,8 @@
+{
+  "name": "lablabel-order",
+  "version": "1.0.0",
+  "description": "Приём заявок с lablabel.ru и отправка их в Telegram",
+  "main": "index.js",
+  "private": true,
+  "engines": { "node": ">=18" }
+}

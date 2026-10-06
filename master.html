@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кабинет мастера — LABLABEL</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#101114">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/master.css?v=3">
+</head>
+<body class="mbody">
+
+<header class="mh">
+  <div class="wrap mh__in">
+    <a class="logo" href="/" aria-label="LABLABEL — на сайт">
+      <span class="logo__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="logo__txt">LAB<b>LABEL</b></span>
+    </a>
+    <nav class="mtabs" role="tablist" aria-label="Разделы">
+      <button type="button" role="tab" data-tab="calc" aria-selected="true">Расчёт заказа</button>
+      <button type="button" role="tab" data-tab="log" aria-selected="false">Журнал <span class="mcount" id="logCount" hidden></span></button>
+      <button type="button" role="tab" data-tab="ref" aria-selected="false">Справочник</button>
+    </nav>
+    <button type="button" class="mlink mh__new" id="btnNew">Новый расчёт</button>
+  </div>
+</header>
+
+<main class="wrap mmain">
+
+  <div class="mbanner" id="refBanner" hidden>
+    <span>Расчёт открыт по ссылке — цифры считаются по справочнику из ссылки.</span>
+    <button type="button" class="mlink" id="refUseMine">Пересчитать по моему справочнику</button>
+  </div>
+
+  <!-- ═════════════ РАСЧЁТ ═════════════ -->
+  <section id="tab-calc" class="mgrid">
+    <form class="mcol" id="mForm" novalidate autocomplete="off">
+
+      <div class="mcard">
+        <h2 class="mcard__h"><span>1</span> Заказ</h2>
+
+        <label class="inp">
+          <span>Клиент / что за заказ</span>
+          <input type="text" name="title" maxlength="80" placeholder="Например: Анна, салон «Ноготки»">
+        </label>
+
+        <fieldset class="fld">
+          <legend>Вид визитки</legend>
+          <div class="opts opts--4" id="kindOpts"></div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>Тираж, шт</legend>
+          <div class="mqty">
+            <button type="button" class="mstep" data-step="-1" aria-label="Меньше">−</button>
+            <input type="number" name="q" min="1" step="1" inputmode="numeric" aria-label="Тираж">
+            <button type="button" class="mstep" data-step="1" aria-label="Больше">+</button>
+          </div>
+          <div class="mchips" id="qtyChips"></div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>Опции</legend>
+          <label class="chk" id="tsRow"><input type="checkbox" name="ts"><span>Двусторонняя печать <i id="tsHint"></i></span></label>
+          <label class="chk"><input type="checkbox" name="u"><span>Срочно, за 1 рабочий день <i>+30% к цене</i></span></label>
+          <label class="chk"><input type="checkbox" name="d"><span>Разработка макета с нуля <i id="dHint"></i></span></label>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>Клиент платит как</legend>
+          <div class="mseg" data-name="ct">
+            <button type="button" data-v="p">Физлицо · НПД 4%</button>
+            <button type="button" data-v="c">Компания/ИП · НПД 6%</button>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="mcard">
+        <h2 class="mcard__h"><span>2</span> Цена</h2>
+
+        <fieldset class="fld">
+          <legend>Как считаем цену</legend>
+          <div class="mseg" data-name="mode">
+            <button type="button" data-v="list">По прайсу сайта</button>
+            <button type="button" data-v="markup">Себестоимость + наценка</button>
+          </div>
+          <p class="mhint" id="modeHint"></p>
+        </fieldset>
+
+        <fieldset class="fld" id="markupFld">
+          <legend>Наценка на себестоимость <span class="mval" id="mkVal"></span></legend>
+          <div class="mchips mchips--wide" id="mkChips"></div>
+          <label class="minline">Своя: <input type="number" name="mk" min="0" max="1000" step="5"> %</label>
+        </fieldset>
+
+        <div class="row">
+          <label class="inp">
+            <span>Скидка, %</span>
+            <input type="number" name="disc" min="0" max="90" step="1">
+          </label>
+          <label class="inp">
+            <span>Доставка клиенту, ₽ <em class="mmuted">СДЭК / Почта</em></span>
+            <input type="number" name="dl" min="0" step="10">
+          </label>
+        </div>
+
+        <fieldset class="fld">
+          <legend>Упаковка</legend>
+          <div class="mseg" data-name="pk" id="pkSeg"></div>
+        </fieldset>
+
+        <label class="chk"><input type="checkbox" name="mo"><span>Минимальная сумма заказа <i id="moHint"></i></span></label>
+      </div>
+
+      <div class="mcard">
+        <h2 class="mcard__h"><span>3</span> Из чего складывается себестоимость</h2>
+        <div class="mbar" id="costBar" aria-hidden="true"></div>
+        <div id="costGroups"></div>
+      </div>
+    </form>
+
+    <aside class="mout" aria-live="polite">
+      <div class="mtotal">
+        <p class="mtotal__lbl">Клиенту к оплате</p>
+        <p class="mtotal__sum"><span id="oTotal">0</span> ₽</p>
+        <p class="mtotal__per" id="oPer"></p>
+        <p class="mwarn" id="oWarn" hidden></p>
+      </div>
+
+      <div class="mkpi">
+        <div class="mtile"><span>Себестоимость</span><b id="oCost">0 ₽</b><i id="oCostNote"></i></div>
+        <div class="mtile"><span>Налог НПД</span><b id="oTax">0 ₽</b><i id="oTaxNote"></i></div>
+        <div class="mtile mtile--accent"><span>Чистая прибыль</span><b id="oProfit">0 ₽</b><i id="oProfitNote"></i></div>
+        <div class="mtile"><span>Работаю сам</span><b id="oSelf">0 ₽</b><i id="oSelfNote"></i></div>
+        <div class="mtile mtile--wide"><span>Если руки — помощника (владельцу)</span><b id="oOwner">0 ₽</b><i id="oOwnerNote"></i></div>
+      </div>
+
+      <div class="mshare">
+        <label class="inp inp--sm">
+          <span>Имя мастера в КП</span>
+          <input type="text" id="mName" maxlength="40" placeholder="Евгений, LABLABEL">
+        </label>
+        <label class="inp inp--sm">
+          <span>Заметка для клиента</span>
+          <input type="text" id="mNote" name="note" maxlength="140" placeholder="Цвет, материал, пожелания">
+        </label>
+        <button type="button" class="btn btn--wide" id="btnKp">Открыть КП для клиента</button>
+        <div class="mshare__row">
+          <button type="button" class="btn btn--ghost btn--sm" id="btnKpLink">Ссылка на КП</button>
+          <button type="button" class="btn btn--ghost btn--sm" id="btnMsg">Текст в мессенджер</button>
+        </div>
+        <button type="button" class="mlink" id="btnSelfLink">Скопировать ссылку на этот расчёт (для себя)</button>
+        <pre class="mmsg" id="msgPreview" hidden></pre>
+        <p class="mtoast" id="toast" role="status"></p>
+        <label class="mfallback" id="copyFallback" hidden>
+          <span>Скопируйте вручную — буфер обмена недоступен:</span>
+          <textarea id="copyText" rows="3" readonly></textarea>
+        </label>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ═════════════ ЖУРНАЛ ═════════════ -->
+  <section id="tab-log" hidden>
+    <div class="mref__head">
+      <div>
+        <h1 class="mref__h">Журнал расчётов</h1>
+        <p class="mhint">Сюда попадает каждый расчёт, который вы отправили клиенту: КП, ссылка или текст в мессенджер. Хранится в этом браузере.</p>
+      </div>
+      <div class="mref__act">
+        <button type="button" class="btn btn--ghost btn--sm" id="logCsv">Выгрузить CSV</button>
+        <button type="button" class="btn btn--ghost btn--sm" id="logClear">Очистить журнал</button>
+      </div>
+    </div>
+    <div class="mlog" id="logList"></div>
+  </section>
+
+  <!-- ═════════════ СПРАВОЧНИК ═════════════ -->
+  <section id="tab-ref" hidden>
+    <div class="mref__head">
+      <div>
+        <h1 class="mref__h">Справочник мастерской</h1>
+        <p class="mhint">Цены материалов, оборудование, нормы времени. Хранится в этом браузере; на другое устройство — через экспорт/импорт.</p>
+      </div>
+      <div class="mref__act">
+        <button type="button" class="btn btn--ghost btn--sm" id="refExport">Экспорт JSON</button>
+        <label class="btn btn--ghost btn--sm">Импорт JSON<input type="file" id="refImport" accept="application/json,.json" hidden></label>
+        <button type="button" class="btn btn--ghost btn--sm" id="refReset">Сбросить к стандарту</button>
+      </div>
+    </div>
+    <div class="mref" id="refForm"></div>
+  </section>
+
+</main>
+
+<script src="/assets/js/app.js" defer></script>
+<script src="/assets/js/master.js?v=2" defer></script>
+</body>
+</html>

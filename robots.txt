@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /privacy.html
+Disallow: /master.html
+Disallow: /kp.html
+
+Sitemap: https://lablabel.ru/sitemap.xml
